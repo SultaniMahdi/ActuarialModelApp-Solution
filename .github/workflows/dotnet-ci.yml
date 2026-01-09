@@ -33,4 +33,5 @@ jobs:
       run: dotnet build ActuarialModelApp.sln --configuration Release --no-restore
 
     - name: 🧪 Run Unit Tests
-      run: dotnet test ActuarialModelApp.sln --configuration Release --no-build
+      # We target the specific test project file instead of the whole .sln
+      run: dotnet test ActuarialModelApp.Tests/ActuarialModelApp.Tests.csproj --configuration Release --no-build --verbosity normal
