@@ -1,0 +1,52 @@
+<UserControl x:Class="ActuarialModelApp.UI.ActuarialView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+             Background="White">
+
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="280"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Controls -->
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Actuarial Simulation"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Margin="0,0,0,15"/>
+
+            <Label Content="Lambda (Frequency)"/>
+            <TextBox x:Name="TxtLambda" Text="20"/>
+
+            <Label Content="Mu (Severity)"/>
+            <TextBox x:Name="TxtMu" Text="8.5"/>
+
+            <Label Content="Sigma"/>
+            <TextBox x:Name="TxtSigma" Text="0.6"/>
+
+            <Label Content="Simulations"/>
+            <TextBox x:Name="TxtSimulations" Text="50000"/>
+
+            <Button Content="Run Simulation"
+                    Height="40"
+                    Margin="0,15,0,0"
+                    Click="Run_Click"/>
+        </StackPanel>
+
+        <!-- Charts -->
+        <Grid Grid.Column="1" Margin="10,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScottPlot:WpfPlot x:Name="PlotAggregate"/>
+            <TextBox x:Name="TxtOutput"
+                     Grid.Row="1"
+                     FontFamily="Consolas"
+                     IsReadOnly="True"/>
+        </Grid>
+    </Grid>
+</UserControl>

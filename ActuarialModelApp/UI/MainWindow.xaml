@@ -1,0 +1,29 @@
+﻿<Window x:Class="ActuarialModelApp.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="clr-namespace:ActuarialModelApp.UI"
+        Title="Insurance Management System"
+        Width="1400"
+        Height="850"
+        Background="#F4F6F9">
+
+    <Grid>
+        <TabControl Margin="10">
+            <TabItem Header="Actuarial">
+                <ui:ActuarialView/>
+            </TabItem>
+
+            <TabItem Header="Policies">
+                <ui:PolicyView/>
+            </TabItem>
+
+            <TabItem Header="Claims">
+                <ui:ClaimsView/>
+            </TabItem>
+
+            <TabItem Header="Reports">
+                <ui:ReportsView/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

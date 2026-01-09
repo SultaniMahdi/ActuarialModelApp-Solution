@@ -1,0 +1,36 @@
+name: Actuarial Model CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    name: 🏗️ Build & Verify
+    runs-on: windows-latest
+    
+    # This tells GitHub that all 'run' commands should happen inside your solution folder
+    defaults:
+      run:
+        working-directory: ./
+
+    steps:
+    - name: 🔍 Checkout Code
+      uses: actions/checkout@v4
+
+    - name: ⚙️ Setup .NET 10
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: 📥 Restore Dependencies
+      # We target the specific SLN file relative to the root
+      run: dotnet restore ActuarialModelApp.sln
+
+    - name: 🔨 Build Solution
+      run: dotnet build ActuarialModelApp.sln --configuration Release --no-restore
+
+    - name: 🧪 Run Unit Tests
+      run: dotnet test ActuarialModelApp.sln --configuration Release --no-build
