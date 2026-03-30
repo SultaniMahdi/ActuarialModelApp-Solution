@@ -53,7 +53,7 @@ ActuarialModelApp/
 
     Clone the repository:
 
-git clone https://github.com/MMSultani/ActuarialModelApp-Solution.git
+
 
     Open the solution in:
 
